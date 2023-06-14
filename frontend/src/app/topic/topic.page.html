@@ -1,0 +1,42 @@
+<ion-header [translucent]="true">
+  <ion-toolbar >
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Study App - Tópicos | Marcelo Cabral</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-refresher slot="fixed" (ionRefresh)="refresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
+  <ion-accordion-group [multiple]="false" [value]="['first', 'third']">
+    <ion-accordion *ngFor="let topico of topicos" [value]="topico.id">
+      <ion-item slot="header" color="light">
+        <ion-label class="ion-color-primary">{{topico.id}} - {{topico.name}}</ion-label>
+        <ion-buttons slot="end">
+          <ion-button (click)="shareTopic(topico)">
+            <ion-icon name="share-outline"></ion-icon>
+          </ion-button>
+          <ion-icon slot="end" name="create-outline" color="success" [routerLink]="'/edit-topic/' + topico.id"></ion-icon>
+          <!-- <ion-icon slot="end" name="trash-outline" color="danger" (click)="deleteTopic(topico.id)"></ion-icon>
+        --></ion-buttons> 
+      </ion-item>
+      <div class="ion-padding" slot="content">Fecha de creación: {{topico.create_date}}</div>
+      <div class="ion-padding" slot="content">Orden: {{topico.order}} | Prioridad: {{topico.priority}}</div>
+      <div class="ion-padding" slot="content">Color: {{topico.color}}</div>
+      <ion-item>
+        <ion-range [(ngModel)]="calificaciones[topico.id]" min="1" max="5" step="1"></ion-range>
+      </ion-item>
+    </ion-accordion>
+  </ion-accordion-group>
+
+  <ion-fab slot="fixed" vertical="bottom" horizontal="end">
+    <ion-fab-button routerLink="/edit-topic/0">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+</ion-content>

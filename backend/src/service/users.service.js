@@ -1,27 +1,26 @@
 const {sequelize} = require("../connection");
-const {UserModel} = require("../model/user.model");
+const {UserModel} = require("../model/users.model");
 
-const listarService = async function(textoBuscar) {
-    console.log("listar usuarios service");
+const listar =async function (textoBuscar) {
+    console.log('listar users');
+
     try {
-        const users = await sequelize.query(`SELECT * 
-                                            FROM users 
-                                            WHERE 1=1
-                                                AND UPPER(name) LIKE UPPER('%${textoBuscar}%')
-                                                AND deleted IS false
-                                            ORDER BY id`);
-        
-        if (users && users[0]){
-            //En users[0] se encuentra el listado de lo que se recupera desde el SQL
+        const users = await sequelize.query (
+            `SELECT * FROM users
+            WHERE 1=1
+            AND UPPER(name) LIKE UPPER ('%${textoBuscar}%')
+            ORDER BY id`);
+        if (users && users [0]) {
             return users[0];
         } else {
             return [];
-        }        
+        }
     } catch (error) {
         console.log(error);
         throw error;
     }
 };
+
 
 const consultarPorCodigo = async function(req, res) {
     console.log("consultar 1 usuario por codigo");
@@ -84,7 +83,7 @@ const eliminar = async function(req, res) {
     //res.send("eliminar de usuarios");
 
     //Borrado fisico
-    //UserModel.destroy(req.params.id);
+    UserModel.destroy(req.params.id);
     try {
         await sequelize.query("UPDATE users SET deleted=true WHERE id = " + req.params.id);
             
@@ -102,5 +101,5 @@ const eliminar = async function(req, res) {
 
 
 module.exports = {
-    listarService, busquedaPorCodigo: consultarPorCodigo, actualizar, eliminar
+    listar, busquedaPorCodigo: consultarPorCodigo, actualizar, eliminar
 };

@@ -1,0 +1,37 @@
+ion-header {
+    ion-toolbar {
+      ion-title {
+        font-size: 1.2rem;
+        font-weight: bold;
+      }
+    }
+  }
+  
+  ion-content {
+    ion-header[collapse="condense"] {
+      ion-toolbar {
+        ion-title {
+          font-size: 1.4rem;
+        }
+      }
+    }
+  
+    ion-list {
+      ion-item {
+        ion-label {
+          white-space: normal;
+        }
+  
+        ion-icon[slot="end"] {
+          --ion-color-primary: #3880ff;
+        }
+      }
+    }
+  
+    ion-fab {
+      ion-fab-button {
+        --background: #3880ff;
+      }
+    }
+  }
+  

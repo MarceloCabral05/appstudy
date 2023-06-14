@@ -1,0 +1,21 @@
+ion-content {
+    ion-accordion {
+      ion-item[slot="header"] {
+        ion-label {
+          font-weight: bold;
+        }
+      }
+      
+      div[slot="content"] {
+        font-size: 14px;
+        color: #555555;
+      }
+      
+      ion-item.ion-padding {
+        ion-range {
+          margin-top: 10px;
+        }
+      }
+    }
+  }
+  

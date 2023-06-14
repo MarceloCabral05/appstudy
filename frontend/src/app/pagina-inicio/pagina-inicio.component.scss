@@ -1,0 +1,41 @@
+ion-header {
+    ion-toolbar {
+      ion-title {
+        font-size: 1.5rem;
+        font-weight: bold;
+      }
+  
+      ion-buttons {
+        ion-button {
+          margin-left: 8px;
+        }
+      }
+    }
+  }
+  
+  .welcome-container {
+    text-align: center;
+    margin-top: 32px;
+  
+    .logo {
+      width: 150px;
+      height: auto;
+      margin-bottom: 16px;
+    }
+  
+    .app-name {
+      font-size: 2rem;
+      font-weight: bold;
+    }
+  
+    .university {
+      font-size: 1.2rem;
+    }
+  
+    .course, .professor {
+      margin-top: 8px;
+      font-size: 1rem;
+      color: #888;
+    }
+  }
+  
