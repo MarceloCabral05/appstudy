@@ -40,6 +40,8 @@
     <ion-list>
       <ion-item (click)="listarTopicos()" routerLink="/topics">
         <ion-label>Listar Tópicos</ion-label>
+      </ion-item> <ion-item (click)="listarTopicos()" routerLink="/topics">
+        <ion-label>Propiedad temas </ion-label>
       </ion-item>
       <ion-item (click)="listarUsuarios()" routerLink="/usuarios">
         <ion-label>Listar Usuarios</ion-label>
@@ -58,7 +60,7 @@
       </ion-item>
     </ion-list>
     <div class="no-topics-message" *ngIf="topicos.length === 0">
-      No hay tópicos disponibles.
+      
     </div>
   </div>
 </ion-content>

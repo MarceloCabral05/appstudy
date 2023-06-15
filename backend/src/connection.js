@@ -1,7 +1,7 @@
 const { Sequelize } = require('sequelize');
 
 //5432 o 5434 
-const sequelize = new Sequelize("test", 'postgres', '1346', {
+const sequelize = new Sequelize("bd_study_app", 'postgres', '1346', {
     host : 'localhost',
     port : 5432,
     dialect : 'postgres'
